@@ -23,9 +23,9 @@ let btn=()=>{
             if(playeroneinput.value<-5){
                 error.innerHTML='Invaild Number'
             }else{
-                playerOne.style = 'display: None'
+                playerOne.style.display='none'
                 error.innerHTML=''
-                playerTwo.style= 'display: block'
+                playerTwo.style.display='block'
             }
             
         }
@@ -43,15 +43,15 @@ let button=()=>{
             error.innerHTML=''
             if(playeroneinput.value==playerTwoinput.value){
                 error.innerHTML='Player-2 Win'
-                winner.style = 'Display:Block'
-                playerTwo.style='display:none'
+                winner.style.display='block'
+                playerTwo.style.display='none'
             }else{
                 chance++
                 chanceNumber.innerHTML = chance
                 if(chance== 5){
                     error.innerHTML='Player-1 Win'
-                    winner.style = 'Display:Block'
-                    playerTwo.style='display:none'
+                    winner.style.display='block'
+                    playerTwo.style.display='none'
                 }
                 
             }
@@ -62,23 +62,28 @@ let button=()=>{
     }else{
         if(playeroneinput.value==playerTwoinput.value){
             error.innerHTML='Player-2 Win'
-            winner.style = 'Display:Block'
-            playerTwo.style='display:none'
+            winner.style.display='block'
+            playerTwo.style.display='none'
         }else{
             if(chance== 5){
                 error.innerHTML='Player-1 Win'
-                winner.style = 'Display:Block'
-                playerTwo.style='display:none'
+                winner.style.display='block'
+                playerTwo.style.display='none'
             }
             
         }
     }
     playerTwoinput.value=''
 }
+// -------------enter fun
 let entwr=(item)=>{
     if(item.key=='Enter'){
+        console.log(item.target.className)
+        if(item.target.className =='playeroneinput'){
+            btn()
+        }
+        else{
         button()
-        btn()
-        
+        }  
     }
 }
